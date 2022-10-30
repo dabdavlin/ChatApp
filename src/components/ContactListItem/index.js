@@ -12,7 +12,7 @@ const ContactListItem = ({ user }) => {
   const navigation = useNavigation();
 
   const onPress = async () => {
-    //Check if we already have a ChatRoom with user
+    // Check if we already have a ChatRoom with user
     const existingChatRoom = await getCommonChatRoomWithUser(user.id);
     if (existingChatRoom) {
       navigation.navigate("Chat", { id: existingChatRoom.id });
@@ -50,20 +50,15 @@ const ContactListItem = ({ user }) => {
 
   return (
     <Pressable onPress={onPress} style={styles.container}>
-      <Image
-        source={{
-          uri: user.image,
-        }}
-        style={styles.image}
-      />
+      <Image source={{ uri: user.image }} style={styles.image} />
 
       <View style={styles.content}>
-        <Text numberOfLines={1} style={styles.name}>
+        <Text style={styles.name} numberOfLines={1}>
           {user.name}
         </Text>
 
         <Text numberOfLines={2} style={styles.subTitle}>
-          {user.Status}
+          {user.status}
         </Text>
       </View>
     </Pressable>
